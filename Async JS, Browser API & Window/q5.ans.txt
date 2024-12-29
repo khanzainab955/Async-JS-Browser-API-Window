@@ -1,0 +1,144 @@
+Common Browser APIs Available to JavaScript Developers
+The browser provides a variety of built-in APIs that enable JavaScript developers to interact with different aspects of a web page, the user's device, and the internet. Here are some of the most commonly used ones:
+
+1. DOM (Document Object Model) API
+* Purpose: Allows developers to interact with and manipulate the structure, style, and content of web pages.
+* Key Features:
+o Access HTML elements using document.querySelector() or document.getElementById().
+o Modify elements dynamically with methods like element.innerHTML or element.classList.add().
+o Listen for events like clicks or keyboard input using addEventListener().
+
+2. Console API
+* Purpose: Provides methods to log information to the browser’s developer console for debugging.
+* Key Features:
+o console.log(): Logs general information.
+o console.error(): Logs error messages.
+o console.table(): Displays tabular data in the console.
+
+3. Fetch API
+* Purpose: Used to make network requests to servers and fetch resources such as JSON, images, or HTML.
+* Key Features:
+o Makes asynchronous HTTP requests (GET, POST, etc.).
+o Works with Promises for easier handling of asynchronous code.
+o Example:
+javascript
+Copy code
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+
+4. Web Storage API
+* Purpose: Enables storage of data in the browser.
+* Types:
+o LocalStorage: Persistent storage (data remains even after the browser is closed).
+o SessionStorage: Temporary storage (data is cleared when the tab is closed).
+* Key Features:
+o localStorage.setItem('key', 'value'): Store data.
+o localStorage.getItem('key'): Retrieve data.
+
+5. Geolocation API
+* Purpose: Provides the location of the user's device (with user permission).
+* Key Features:
+o Access latitude, longitude, and accuracy of the device's location.
+o Example:
+javascript
+Copy code
+navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position.coords.latitude, position.coords.longitude);
+});
+
+6. Canvas API
+* Purpose: Allows drawing and manipulating 2D and 3D graphics on a web page.
+* Key Features:
+o Drawing shapes, text, and images.
+o Creating animations and game graphics.
+o Example:
+javascript
+Copy code
+let canvas = document.getElementById('myCanvas');
+let ctx = canvas.getContext('2d');
+ctx.fillStyle = 'blue';
+ctx.fillRect(10, 10, 100, 50);
+
+7. WebSockets API
+* Purpose: Facilitates two-way communication between a browser and a server.
+* Key Features:
+o Ideal for real-time data transfer, like chat applications or live notifications.
+o Example:
+javascript
+Copy code
+let socket = new WebSocket('ws://example.com/socket');
+socket.onmessage = (event) => console.log(event.data);
+
+8. Notification API
+* Purpose: Displays desktop notifications to the user.
+* Key Features:
+o Requires user permission.
+o Example:
+javascript
+Copy code
+Notification.requestPermission().then(permission => {
+    if (permission === 'granted') {
+        new Notification('Hello, World!');
+    }
+});
+
+9. File API
+* Purpose: Enables file handling and reading by interacting with file inputs or drag-and-drop interfaces.
+* Key Features:
+o Read file content using FileReader.
+o Access metadata like name, type, and size of files.
+o Example:
+javascript
+Copy code
+let fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', (event) => {
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.onload = (e) => console.log(e.target.result);
+    reader.readAsText(file);
+});
+
+10. WebRTC API
+* Purpose: Enables peer-to-peer communication for video, audio, and data sharing directly between browsers.
+* Key Features:
+o Useful for video conferencing and real-time media sharing.
+o Example:
+javascript
+Copy code
+navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => document.querySelector('video').srcObject = stream)
+    .catch(error => console.error(error));
+
+11. History API
+* Purpose: Allows manipulation of the browser's session history.
+* Key Features:
+o Navigate history without a full page reload using pushState() and replaceState().
+o Example:
+javascript
+Copy code
+history.pushState({ page: 1 }, 'Page 1', '/page1');
+
+12. Clipboard API
+* Purpose: Provides read and write access to the clipboard.
+* Key Features:
+o Copy and paste data programmatically.
+o Example:
+javascript
+Copy code
+navigator.clipboard.writeText('Copied text!');
+
+These APIs empower developers to create interactive, dynamic, and feature-rich web applications. By combining them effectively, developers can provide seamless user experiences.
+Top of Form
+
+Bottom of Form
+
+
+Top of Form
+
+
+Bottom of Form
+
+
+
